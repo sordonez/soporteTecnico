@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Registronetbook\ControlBundle\Entity\Movimiento" table="movimiento">
+    <indexes>
+      <index name="fk_movimiento_detalle_app_user1_idx" columns="app_user_id"/>
+      <index name="fk_movimiento_ubicacion_idx" columns="ubicacion_id"/>
+      <index name="fk_movimiento_problema_idx" columns="problema_id"/>
+      <index name="fk_movimiento_estado_idx" columns="estado_id"/>
+      <index name="fk_movimiento_tipoMovimiento_idx" columns="tipoMovimiento_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="linea" type="integer" column="linea" nullable="false"/>
+    <field name="fecha" type="datetime" column="fecha" nullable="true"/>
+    <field name="descripcion" type="string" column="descripcion" length="1000" nullable="true"/>
+    <field name="anulado" type="boolean" column="anulado" nullable="true"/>
+    <field name="fechaAnulado" type="datetime" column="fecha_anulado" nullable="true"/>
+
+    <many-to-one field="appUser" target-entity="Registronetbook\UserBundle\Entity\AppUser">
+      <join-columns>
+        <join-column name="app_user_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+
+    <many-to-one field="maquina" target-entity="Registronetbook\ControlBundle\Entity\Maquina">
+      <join-columns>
+        <join-column name="maquina_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+
+    <many-to-one field="ubicacion" target-entity="Registronetbook\ControlBundle\Entity\Ubicacion">
+      <join-columns>
+        <join-column name="ubicacion_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+
+    <many-to-one field="problema" target-entity="Registronetbook\ControlBundle\Entity\Problema">
+      <join-columns>
+        <join-column name="problema_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+
+    <many-to-one field="estado" target-entity="Registronetbook\ControlBundle\Entity\Estado">
+      <join-columns>
+        <join-column name="estado_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+
+    <many-to-one field="tipoMovimiento" target-entity="Registronetbook\ControlBundle\Entity\TipoMovimiento">
+      <join-columns>
+        <join-column name="tipoMovimiento_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    
+  </entity>
+</doctrine-mapping>

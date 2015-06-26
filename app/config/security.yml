@@ -1,0 +1,44 @@
+# you can read more about security in the related section of the documentation
+# http://symfony.com/doc/current/book/security.html
+security:
+    # http://symfony.com/doc/current/book/security.html#encoding-the-user-s-password
+    encoders:
+        Registronetbook\UserBundle\Entity\AppUser: plaintext
+            #algorithm:bcrypt
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        our_db_provider:
+            entity:
+                class: Registronetbook\UserBundle\Entity\AppUser
+                property: username
+
+    # the main part of the security, where you can set up firewalls
+    # for specific sections of your app
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        login_firewall:
+            pattern:   ^/login$
+            anonymous: ~
+        secured_area:
+            pattern:    ^/
+            form_login: ~
+            provider: our_db_provider
+            logout:     true
+
+    #    default:
+    #        pattern:    ^/
+    #        http_basic: ~
+    #        provider: our_db_provider
+    #        form_login:
+    #            login_path: /login
+    #            check_path: /login_check
+
+    # with these settings you can restrict or allow access for different parts
+    # of your application based on roles, ip, host or methods
+    # http://symfony.com/doc/current/cookbook/security/access_control.html
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/admin, roles: ROLE_ADMIN, requires_channel: https  }

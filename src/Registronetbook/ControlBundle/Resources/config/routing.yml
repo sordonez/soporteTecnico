@@ -1,0 +1,55 @@
+control_admin_detalleMovimiento:
+    resource: "@ControlBundle/Resources/config/routing/detallemovimiento.yml"
+    prefix:   /admin/detalleMovimiento
+
+control_admin_orden:
+    resource: "@ControlBundle/Resources/config/routing/orden.yml"
+    prefix:   /admin/orden
+
+control_admin_Curso:
+    resource: "@ControlBundle/Resources/config/routing/curso.yml"
+    prefix:   /admin/Curso
+
+control_admin_ubicacion:
+    resource: "@ControlBundle/Resources/config/routing/ubicacion.yml"
+    prefix:   /admin/ubicacion
+
+control_admin_tipoMovimiento:
+    resource: "@ControlBundle/Resources/config/routing/tipomovimiento.yml"
+    prefix:   /admin/tipoMovimiento
+
+control_admin_problema:
+    resource: "@ControlBundle/Resources/config/routing/problema.yml"
+    prefix:   /admin/problema
+
+control_admin_movimiento:
+    resource: "@ControlBundle/Resources/config/routing/movimiento.yml"
+    prefix:   /admin/movimiento
+
+control_admin_estado:
+    resource: "@ControlBundle/Resources/config/routing/estado.yml"
+    prefix:   /admin/estado
+
+control_admin_usuario:
+    resource: "@ControlBundle/Resources/config/routing/usuario.yml"
+    prefix:   /admin/usuario
+
+control_admin_maquina:
+    resource: "@ControlBundle/Resources/config/routing/maquina.yml"
+    prefix:   /admin/maquina
+
+control_admin_select_usuario:
+    path:     /admin/select_usuario
+    defaults: { _controller: "ControlBundle:Ajax:index" }
+searchMovimiento:
+    path:     /admin/searchMovimiento
+    defaults: { _controller: "ControlBundle:MovimientoQuery:search" }
+
+searchUsuario:
+    path:     /admin/searchUser
+    defaults: { _controller: "ControlBundle:Usuarioquery:search" }
+
+logout:
+    path:   /logout
+login:
+    path:   /login

@@ -1,0 +1,49 @@
+<?php
+
+namespace Registronetbook\ControlBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Maquina
+ *
+ * @ORM\Table(name="maquina", indexes={@ORM\Index(name="fk_maquina_benefeciado1_idx", columns={"benefeciado_idbenefeciado"})})
+ * @ORM\Entity
+ */
+class Maquina
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idmaquina", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idmaquina;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo", type="string", length=45, nullable=true)
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="marca", type="string", length=45, nullable=true)
+     */
+    private $marca;
+
+    /**
+     * @var \Registronetbook\ControlBundle\Entity\Benefeciado
+     *
+     * @ORM\ManyToOne(targetEntity="Registronetbook\ControlBundle\Entity\Benefeciado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="benefeciado_idbenefeciado", referencedColumnName="idbenefeciado")
+     * })
+     */
+    private $benefeciadobenefeciado;
+
+
+}

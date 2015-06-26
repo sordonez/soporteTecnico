@@ -1,0 +1,30 @@
+admin_movimiento:
+    path:     /
+    defaults: { _controller: "ControlBundle:Movimiento:index" }
+
+admin_movimiento_show:
+    path:     /{id}/show
+    defaults: { _controller: "ControlBundle:Movimiento:show" }
+
+admin_movimiento_new:
+    path:     /new
+    defaults: { _controller: "ControlBundle:Movimiento:new" }
+
+admin_movimiento_create:
+    path:     /create
+    defaults: { _controller: "ControlBundle:Movimiento:create" }
+    requirements: { _method: post }
+
+admin_movimiento_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ControlBundle:Movimiento:edit" }
+
+admin_movimiento_update:
+    path:     /{id}/update
+    defaults: { _controller: "ControlBundle:Movimiento:update" }
+    requirements: { _method: post|put }
+
+admin_movimiento_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ControlBundle:Movimiento:delete" }
+    requirements: { _method: post|delete }

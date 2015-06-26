@@ -1,0 +1,84 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Usuario</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ entity.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Dni</th>
+                <td>{{ entity.dni }}</td>
+            </tr>
+            <tr>
+                <th>Cuil</th>
+                <td>{{ entity.cuil }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ entity.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ entity.mail }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ entity.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ entity.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Anulado</th>
+                <td>{{ entity.anulado }}</td>
+            </tr>
+            <tr>
+                <th>Fechaalta</th>
+                <td>{{ entity.fechaAlta|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Fechabaja</th>
+                <td>{{ entity.fechaBaja|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Curso</th>
+                <td>{{ entity.curso }}</td>
+            </tr>
+            <tr>
+                <th>Turno</th>
+                <td>{{ entity.turno }}</td>
+            </tr>
+            <tr>
+                <th>Egresado</th>
+                <td>{{ entity.egresado }}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{ entity.tipo }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_usuario') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admin_usuario_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

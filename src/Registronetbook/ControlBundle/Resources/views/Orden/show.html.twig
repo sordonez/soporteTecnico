@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Orden</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ entity.fecha|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Anulado</th>
+                <td>{{ entity.anulado }}</td>
+            </tr>
+            <tr>
+                <th>Fechaanulado</th>
+                <td>{{ entity.fechaAnulado|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Finalizado</th>
+                <td>{{ entity.finalizado }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_orden') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admin_orden_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

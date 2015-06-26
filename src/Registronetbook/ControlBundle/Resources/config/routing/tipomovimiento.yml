@@ -1,0 +1,30 @@
+admin_tipoMovimiento:
+    path:     /
+    defaults: { _controller: "ControlBundle:TipoMovimiento:index" }
+
+admin_tipoMovimiento_show:
+    path:     /{id}/show
+    defaults: { _controller: "ControlBundle:TipoMovimiento:show" }
+
+admin_tipoMovimiento_new:
+    path:     /new
+    defaults: { _controller: "ControlBundle:TipoMovimiento:new" }
+
+admin_tipoMovimiento_create:
+    path:     /create
+    defaults: { _controller: "ControlBundle:TipoMovimiento:create" }
+    requirements: { _method: post }
+
+admin_tipoMovimiento_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ControlBundle:TipoMovimiento:edit" }
+
+admin_tipoMovimiento_update:
+    path:     /{id}/update
+    defaults: { _controller: "ControlBundle:TipoMovimiento:update" }
+    requirements: { _method: post|put }
+
+admin_tipoMovimiento_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ControlBundle:TipoMovimiento:delete" }
+    requirements: { _method: post|delete }

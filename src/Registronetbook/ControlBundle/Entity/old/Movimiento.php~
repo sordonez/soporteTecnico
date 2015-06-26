@@ -1,0 +1,77 @@
+<?php
+
+namespace Registronetbook\ControlBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Movimiento
+ *
+ * @ORM\Table(name="movimiento", indexes={@ORM\Index(name="fk_movimiento_maquina_idx", columns={"maquina_idmaquina"})})
+ * @ORM\Entity
+ */
+class Movimiento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idmovimiento", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idmovimiento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="diagnostico", type="string", length=255, nullable=false)
+     */
+    private $diagnostico;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_entrada", type="datetime", nullable=true)
+     */
+    private $fechaEntrada;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_salida", type="datetime", nullable=true)
+     */
+    private $fechaSalida;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_envio", type="datetime", nullable=true)
+     */
+    private $fechaEnvio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_recivo", type="datetime", nullable=true)
+     */
+    private $fechaRecivo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estado", type="string", length=45, nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var \Registronetbook\ControlBundle\Entity\Maquina
+     *
+     * @ORM\ManyToOne(targetEntity="Registronetbook\ControlBundle\Entity\Maquina")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="maquina_idmaquina", referencedColumnName="idmaquina")
+     * })
+     */
+    private $maquinamaquina;
+
+
+}

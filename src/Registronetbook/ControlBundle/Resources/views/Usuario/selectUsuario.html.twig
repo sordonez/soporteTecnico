@@ -1,0 +1,26 @@
+    <table id="listUser" class="records_list table table-striped table-responsive table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Dni</th>
+                <th>Direccion</th>
+                <th>Descripcion</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.id }} </td>
+                <td>{{ entity.nombre }}</td>
+                <td>{{ entity.dni }}</td>
+                <td>{{ entity.direccion }}</td>
+                <td>{{ entity.descripcion }}</td>
+                <td>{{ entity.tipo }}</td>
+                <td>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>

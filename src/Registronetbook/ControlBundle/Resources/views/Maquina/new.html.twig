@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Maquina creation</h1>
+
+    {{ form(form) }}
+    <button id="boton1" class="btn btn-default" data-toggle="modal" data-target="#myModal"> Seleccionar Usuario</button>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_maquina') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Lista de Usuarios</h4>
+            </div>
+            <div class="modal-body">
+                <input id="inputBuscar" name="buscar" type="text" class="input-medium search-query" placeholder="Buscar">
+                <button id="Buttonbuscar" class="btn">Buscar</button>
+                <div class="table" id="dialogo">
+                    {# tabla de usuarios a seleccionar  --- {{ path('control_admin_select_usuario') }}#}    
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

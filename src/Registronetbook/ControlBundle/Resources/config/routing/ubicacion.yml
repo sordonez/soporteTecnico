@@ -1,0 +1,30 @@
+admin_ubicacion:
+    path:     /
+    defaults: { _controller: "ControlBundle:Ubicacion:index" }
+
+admin_ubicacion_show:
+    path:     /{id}/show
+    defaults: { _controller: "ControlBundle:Ubicacion:show" }
+
+admin_ubicacion_new:
+    path:     /new
+    defaults: { _controller: "ControlBundle:Ubicacion:new" }
+
+admin_ubicacion_create:
+    path:     /create
+    defaults: { _controller: "ControlBundle:Ubicacion:create" }
+    requirements: { _method: post }
+
+admin_ubicacion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ControlBundle:Ubicacion:edit" }
+
+admin_ubicacion_update:
+    path:     /{id}/update
+    defaults: { _controller: "ControlBundle:Ubicacion:update" }
+    requirements: { _method: post|put }
+
+admin_ubicacion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ControlBundle:Ubicacion:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,46 @@
+<?php
+
+namespace Registronetbook\ControlBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Entrada
+ *
+ * @ORM\Table(name="entrada")
+ * @ORM\Entity
+ */
+class Entrada
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo", type="string", length=255, nullable=false)
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="diagnostico", type="string", length=255, nullable=false)
+     */
+    private $diagnostico;
+
+
+}

@@ -1,0 +1,16 @@
+How to Generate Entities from an Existing Database
+
+1) generate metadata files
+	
+	php app/console doctrine:mapping:import --force AcmeBlogBundle xml
+	
+	this command generate XML file metadata under  the src/Acme/BlogBundle/Resources/config/doctrine
+	folder of your bundle.
+	this generate two files BlogPost.orm.XML
+2)
+	generate entity class:
+	$ php app/console doctrine:mapping:convert annotation ./src
+
+	But if you want to use YAML or XML mapping instead of annotations, you should execute the second command only.
+	$ php app/console doctrine:generate:entities AcmeBlogBundle
+

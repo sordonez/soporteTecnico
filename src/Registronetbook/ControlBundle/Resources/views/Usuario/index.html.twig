@@ -1,0 +1,65 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Usuario list</h1>
+<div class="table-responsive " >
+    <table  class="records_list">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Dni</th>
+                <th>Cuil</th>
+                <th>Telefono</th>
+                <th>Mail</th>
+                <th>Direccion</th>
+                <th>Descripcion</th>
+                <th>Anulado</th>
+                <th>Fechaalta</th>
+                <th>Fechabaja</th>
+                <th>Turno</th>
+                <th>Egresado</th>
+                <th>Tipo</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_usuario_show', { 'id': entity.id }) }}">{{ entity.nombre }}</a></td>
+                <td>{{ entity.dni }}</td>
+                <td>{{ entity.cuil }}</td>
+                <td>{{ entity.telefono }}</td>
+                <td>{{ entity.mail }}</td>
+                <td>{{ entity.direccion }}</td>
+                <td>{{ entity.descripcion }}</td>
+                <td>{{ entity.anulado }}</td>
+                <td>{% if entity.fechaAlta %}{{ entity.fechaAlta|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.fechaBaja %}{{ entity.fechaBaja|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.turno }}</td>
+                <td>{{ entity.egresado }}</td>
+                <td>{{ entity.tipo }}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_usuario_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_usuario_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+        <ul>
+        <li>
+            <a href="{{ path('admin_usuario_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

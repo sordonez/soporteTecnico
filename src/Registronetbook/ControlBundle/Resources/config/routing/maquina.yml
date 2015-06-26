@@ -1,0 +1,30 @@
+admin_maquina:
+    path:     /
+    defaults: { _controller: "ControlBundle:Maquina:index" }
+
+admin_maquina_show:
+    path:     /{id}/show
+    defaults: { _controller: "ControlBundle:Maquina:show" }
+
+admin_maquina_new:
+    path:     /new
+    defaults: { _controller: "ControlBundle:Maquina:new" }
+
+admin_maquina_create:
+    path:     /create
+    defaults: { _controller: "ControlBundle:Maquina:create" }
+    requirements: { _method: post }
+
+admin_maquina_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ControlBundle:Maquina:edit" }
+
+admin_maquina_update:
+    path:     /{id}/update
+    defaults: { _controller: "ControlBundle:Maquina:update" }
+    requirements: { _method: post|put }
+
+admin_maquina_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ControlBundle:Maquina:delete" }
+    requirements: { _method: post|delete }

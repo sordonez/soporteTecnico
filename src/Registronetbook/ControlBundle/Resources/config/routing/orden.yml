@@ -1,0 +1,30 @@
+admin_orden:
+    path:     /
+    defaults: { _controller: "ControlBundle:Orden:index" }
+
+admin_orden_show:
+    path:     /{id}/show
+    defaults: { _controller: "ControlBundle:Orden:show" }
+
+admin_orden_new:
+    path:     /new
+    defaults: { _controller: "ControlBundle:Orden:new" }
+
+admin_orden_create:
+    path:     /create
+    defaults: { _controller: "ControlBundle:Orden:create" }
+    requirements: { _method: post }
+
+admin_orden_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ControlBundle:Orden:edit" }
+
+admin_orden_update:
+    path:     /{id}/update
+    defaults: { _controller: "ControlBundle:Orden:update" }
+    requirements: { _method: post|put }
+
+admin_orden_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ControlBundle:Orden:delete" }
+    requirements: { _method: post|delete }

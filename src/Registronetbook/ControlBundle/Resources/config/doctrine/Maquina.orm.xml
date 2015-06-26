@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Registronetbook\ControlBundle\Entity\Maquina" table="maquina">
+    <indexes>
+      <index name="fk_maquina_app_user1_idx" columns="app_user_id"/>
+      <index name="fk_maquina_usuario1_idx" columns="usuario_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="serie" type="string" column="serie" length="45" nullable="true"/>
+    <field name="hardwareId" type="string" column="hardwareId" length="45" nullable="true"/>
+    <field name="marca" type="string" column="marca" length="45" nullable="true"/>
+    <field name="anulado" type="boolean" column="anulado" nullable="true"/>
+    <field name="descripcion" type="string" column="descripcion" length="1000" nullable="true"/>
+    <field name="fechaAlta" type="datetime" column="fecha_alta" nullable="true"/>
+    <field name="fechaBaja" type="datetime" column="fecha_baja" nullable="true"/>
+    <many-to-one field="usuario" target-entity="Usuario">
+      <join-columns>
+        <join-column name="usuario_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="appUser" target-entity="Registronetbook\UserBundle\Entity\AppUser">
+      <join-columns>
+        <join-column name="app_user_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

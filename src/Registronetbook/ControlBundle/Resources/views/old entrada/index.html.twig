@@ -1,0 +1,74 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <br>
+    <div class="container">
+        <form class="form-search">
+                <input name="buscar" type="text" class="input-medium search-query" placeholder="Buscar por Codigo">
+                <button type="submit" class="btn" formmethod="post" formaction="{{ path('search') }}">Buscar</button>
+        </form>
+    </div>
+    <br>
+    <div class="container">
+        <table class="records_list table table-striped" data-toggle="table" data-pagination="true" data-search="false">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Codigo</th>
+                    <th>Diagnostico</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td><a href="{{ path('entrada_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                        <td>{{ entity.nombre }}</td>
+                        <td>{{ entity.codigo }}</td>
+                        <td>{{ entity.diagnostico }}</td>
+                        <td>
+                            <form>
+                                <button type="submit" class="btn-info" formmethod="post" formaction="{{ path('entrada_show', { 'id': entity.id }) }}">
+                                    Mostrar
+                                </button>
+                                <button type="submit" class="btn-danger" formmethod="post"  formaction="{{ path('entrada_edit', { 'id': entity.id }) }}">
+                                    Modificar
+                                </button>
+
+                                <button type="submit" class="btn-info" formmethod="post" formaction="{{ path('busqueda_new', { 'id': entity.id }) }}">
+                                    Agrega
+                                </button>
+                            </form>                        
+
+
+                        <!--
+                        <ul>
+                            <li>
+                                <button class="btn-info">
+                                <a href="{{ path('entrada_show', { 'id': entity.id }) }}" >show</a>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="btn-danger">
+                                <a href="{{ path('entrada_edit', { 'id': entity.id }) }}" >edit</a>
+                                </button>
+                            </li>
+                        </ul>
+
+                        -->
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="myModal" class="modal hide fade">
+                <!-- register form here -->
+    </div>
+{% endblock %}
+
+{% block javascripts -%}
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <h1>Orden edit</h1>
+
+    <ul class="record_actions">
+        <li>
+            {{form_start(form)}}
+                <div class="col-md-12 well">
+                    {{ form_row(form.finalizado) }}
+                    {{ form_row(form.maquina) }}
+                </div>
+
+                <h3>Movimientos</h3>
+                <div class="col-md-3 well">
+                    <ul class="detalleMovimientolista">
+                        {# iterate over each existing tag and render its only field: name #}
+                        {% for tag in form.detalleMovimiento %}
+                            <li>{{ form_row(tag) }}</li>
+                        {% endfor %}
+                    </ul>
+                    <ul class="detalleMovimiento" data-prototype="{{ form_widget(form.detalleMovimiento.vars.prototype)|e }}">
+                    </ul>
+                </div>
+            {{form_end(form)}}
+        </li>
+        <li>
+            <a href="{{ path('admin_orden') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            {{ form(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

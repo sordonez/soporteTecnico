@@ -1,0 +1,30 @@
+admin_estado:
+    path:     /
+    defaults: { _controller: "ControlBundle:Estado:index" }
+
+admin_estado_show:
+    path:     /{id}/show
+    defaults: { _controller: "ControlBundle:Estado:show" }
+
+admin_estado_new:
+    path:     /new
+    defaults: { _controller: "ControlBundle:Estado:new" }
+
+admin_estado_create:
+    path:     /create
+    defaults: { _controller: "ControlBundle:Estado:create" }
+    requirements: { _method: post }
+
+admin_estado_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ControlBundle:Estado:edit" }
+
+admin_estado_update:
+    path:     /{id}/update
+    defaults: { _controller: "ControlBundle:Estado:update" }
+    requirements: { _method: post|put }
+
+admin_estado_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ControlBundle:Estado:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,30 @@
+admin_problema:
+    path:     /
+    defaults: { _controller: "ControlBundle:Problema:index" }
+
+admin_problema_show:
+    path:     /{id}/show
+    defaults: { _controller: "ControlBundle:Problema:show" }
+
+admin_problema_new:
+    path:     /new
+    defaults: { _controller: "ControlBundle:Problema:new" }
+
+admin_problema_create:
+    path:     /create
+    defaults: { _controller: "ControlBundle:Problema:create" }
+    requirements: { _method: post }
+
+admin_problema_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ControlBundle:Problema:edit" }
+
+admin_problema_update:
+    path:     /{id}/update
+    defaults: { _controller: "ControlBundle:Problema:update" }
+    requirements: { _method: post|put }
+
+admin_problema_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ControlBundle:Problema:delete" }
+    requirements: { _method: post|delete }

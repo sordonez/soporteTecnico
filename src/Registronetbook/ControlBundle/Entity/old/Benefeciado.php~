@@ -1,0 +1,67 @@
+<?php
+
+namespace Registronetbook\ControlBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Benefeciado
+ *
+ * @ORM\Table(name="benefeciado")
+ * @ORM\Entity
+ */
+class Benefeciado
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idbenefeciado", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idbenefeciado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=200, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dni", type="string", length=45, nullable=true)
+     */
+    private $dni;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cuil", type="string", length=45, nullable=true)
+     */
+    private $cuil;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="string", length=45, nullable=true)
+     */
+    private $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=45, nullable=true)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="direccion", type="string", length=500, nullable=true)
+     */
+    private $direccion;
+
+
+}

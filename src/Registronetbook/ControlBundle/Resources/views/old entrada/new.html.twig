@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <h3>Crear Entrada</h3>
+
+    {#{ form(form) }#}
+	{{ form_start(form) }}
+    	{{ form_errors(form) }}
+	    <div class="form-group">
+		        {{ form_label(form.nombre) }}
+		        {{ form_errors(form.nombre) }}
+		        {{ form_widget(form.nombre) }}
+        </div>
+	    <div class="form-group">
+		        {{ form_label(form.codigo) }}
+		        {{ form_errors(form.codigo) }}
+		        {{ form_widget(form.codigo) }}
+	    </div>
+	    <div class="form-group">
+		        {{ form_label(form.diagnostico) }}
+		        {{ form_errors(form.diagnostico) }}
+		        {{ form_widget(form.diagnostico) }}
+	    </div>
+	{{ form_end(form) }}
+    <ul class="record_actions">
+	    <li>
+	        <a href="{{ path('entrada') }}">
+	            Back to the list
+	        </a>
+	    </li>
+	</ul>
+</div>
+{% endblock %}

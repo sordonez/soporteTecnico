@@ -1,0 +1,30 @@
+admin_Curso:
+    path:     /
+    defaults: { _controller: "ControlBundle:Curso:index" }
+
+admin_Curso_show:
+    path:     /{id}/show
+    defaults: { _controller: "ControlBundle:Curso:show" }
+
+admin_Curso_new:
+    path:     /new
+    defaults: { _controller: "ControlBundle:Curso:new" }
+
+admin_Curso_create:
+    path:     /create
+    defaults: { _controller: "ControlBundle:Curso:create" }
+    requirements: { _method: post }
+
+admin_Curso_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ControlBundle:Curso:edit" }
+
+admin_Curso_update:
+    path:     /{id}/update
+    defaults: { _controller: "ControlBundle:Curso:update" }
+    requirements: { _method: post|put }
+
+admin_Curso_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ControlBundle:Curso:delete" }
+    requirements: { _method: post|delete }
