@@ -116,6 +116,29 @@ class Maquina
     }
 
     /**
+     * Set hardwareId
+     *
+     * @param string $hardwareId
+     * @return Maquina
+     */
+    public function setHardwareId($hardwareId)
+    {
+        $this->hardwareId = $hardwareId;
+
+        return $this;
+    }
+
+    /**
+     * Get hardwareId
+     *
+     * @return string 
+     */
+    public function gethardwareId()
+    {
+        return $this->hardwareId;
+    }
+
+    /**
      * Set marca
      *
      * @param string $marca
@@ -293,7 +316,7 @@ class Maquina
      */
     public function __toString()
     {
-        return $this->getSerie();
+        return $this->getHardwareId();
 
     }
 }
