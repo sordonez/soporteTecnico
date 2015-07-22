@@ -172,16 +172,15 @@ class OrdenController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $originalmd = $em->getRepository('ControlBundle:DetalleMovimiento')->findBy(array('orden' => $id));
-        $entity = $em->getRepository('ControlBundle:Orden')->find($id);
+        //$entity = $em->getRepository('ControlBundle:Orden')->find($id);
+        //$originalmd = new ArrayCollection($entity->getDetalleMovimiento());
         $detalleMovimiento = new ArrayCollection($originalmd);
         $entity->setDetalleMovimiento($detalleMovimiento);
-        
+        $detalleMovimiento = array();
         // Create an array of the current movimientoDetalle objects in the database
-        //foreach ($entity->getDetalleMovimiento() as $md) {
-        //    $originalmd[] = $md;
-        //}
-
-
+        foreach ($entity->getDetalleMovimiento() as $md) {
+            $detalleMovimiento[] = $md;
+        }
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Orden entity.');
         }
@@ -194,13 +193,13 @@ class OrdenController extends Controller
 
             // filter $originalmd to contain adressess no longer present
             foreach ($entity->getDetalleMovimiento() as $md) {
-                 foreach ($originalmd as $key => $toDel) {
-                     if ($toDel->getId() === $md->getId()) {
-                         unset($originalmd[$key]);
+            //     foreach ($originalmd as $key => $toDel) {
+            //         if ($toDel->getId() === $md->getId()) {
+            //             unset($originalmd[$key]);
                         $em->persist($md);
-                     }else{
-                     }
-                 }
+            //         }else{
+            //         }
+            //     }
             }
             $em->flush();
             // remove the relationship between the md and the Task
